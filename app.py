@@ -7,12 +7,15 @@ st.title("Image Generator using OpenAI")
 api_key = st.text_input("Enter your OpenAI API key:")
 openai.api_key = api_key
 
+models = openai.Model.list()
+model_options = [model.id for model in models['data']]
+model_id = st.selectbox("Select the model", model_options)
+
 def generate_image():
     prompt = st.text_input("Enter a prompt for the image:")
-    model = "image-alpha-001"
 
     completions = openai.Completion.create(
-        engine=model,
+        engine=model_id,
         prompt=prompt,
         max_tokens=1024,
         n=1,

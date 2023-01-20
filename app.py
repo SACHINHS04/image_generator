@@ -24,3 +24,4 @@ if st.button("Generate"):
             urllib.request.urlretrieve(image_url, file_path)
             st.success("Image saved as {}".format(file_path))
 
+

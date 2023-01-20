@@ -7,6 +7,17 @@ st.title("Image Generator using OpenAI")
 api_key = st.text_input("Enter your OpenAI API key:")
 openai.api_key = api_key
 
+
+with st.spinner("Waiting for the image to generate..."):
+    completions = openai.Completion.create(
+        engine=model_id,
+        prompt=prompt,
+        max_tokens=1024,
+        n=1,
+        stop=None,
+        temperature=0.5,
+    )
+
 model_id = "image-alpha-003"
 
 def generate_image():

@@ -22,7 +22,7 @@ def generate_image():
         temperature=0.5,
     )
 
-    )
+    
     try:
         image_url = completions.choices[0].url
         st.image(image_url, width=300)

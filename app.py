@@ -1,5 +1,5 @@
 import streamlit as st
-import openai_secret_manager
+#import openai_secret_manager
 import urllib.request
 
 st.title("Image Generator using OpenAI")

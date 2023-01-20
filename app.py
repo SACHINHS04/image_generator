@@ -7,35 +7,19 @@ st.title("Image Generator using OpenAI")
 api_key = st.text_input("Enter your OpenAI API key:")
 openai.api_key = api_key
 
-
-
 model_id = "image-alpha-003"
 
-
-
-with st.spinner("Waiting for the image to generate..."):
-    completions = openai.Completion.create(
-        engine=model_id,
-        prompt=prompt,
-        max_tokens=1024,
-        n=1,
-        stop=None,
-        temperature=0.5,
-    )
-    
-    
-    
 def generate_image():
     prompt = st.text_input("Enter a prompt for the image:")
-
-    completions = openai.Completion.create(
-        engine=model_id,
-        prompt=prompt,
-        max_tokens=1024,
-        n=1,
-        stop=None,
-        temperature=0.5,
-    )
+    with st.spinner("Waiting for the image to generate..."):
+        completions = openai.Completion.create(
+            engine=model_id,
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.5,
+        )
     try:
         image_url = completions.choices[0].url
         st.image(image_url, width=300)
@@ -44,4 +28,7 @@ def generate_image():
         except Exception as e:
             st.error("Error occured, please check the image url or internet connection")
     except KeyError:
-        st.error("Error occured, please check your")
+        st.error("Error occured, please check your prompt or the model you've selected")
+
+if st.button("Generate Image"):
+    generate_image()

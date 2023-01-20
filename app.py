@@ -17,6 +17,7 @@ if st.button("Generate"):
         )
         image_url = response['data'][0]['url']
         st.image(image_url)
-        file_name = prompt.replace(" ", "_") + ".jpg"
-        urllib.request.urlretrieve(image_url, file_name)
-        st.success("Image downloaded as {}".format(file_name))
+        if st.button("Download"):
+            file_name = prompt.replace(" ", "_") + ".jpg"
+            urllib.request.urlretrieve(image_url, file_name)
+            st.success("Image downloaded as {}".format(file_name))

@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-import urllib.request
 
 st.title("Image Generator using OpenAI")
 api_key = st.text_input("Enter your OpenAI API key")
@@ -18,6 +17,4 @@ if st.button("Generate"):
         image_url = response['data'][0]['url']
         st.image(image_url)
         file_name = prompt.replace(" ", "_") + ".jpg"
-        urllib.request.urlretrieve(image_url, file_name)
-        st.success("Image saved as {}".format(file_name))
-
+        st.file_downloader(file_name, caption='Download the image', download_url=image_url)

@@ -23,4 +23,4 @@ def generate_image():
     try:
         image_url = completions.choices[0].url
         st.image(image_url, width=300)
-        st.markdown("[Download image]({})".format(image_url)
+        st.markdown("[Download image]({})".format(image_url)))

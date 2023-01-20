@@ -9,7 +9,6 @@ openai.api_key = api_key
 
 model_id = "image-alpha-003"
 
-
 def generate_image():
     prompt = st.text_input("Enter a prompt for the image:")
 
@@ -21,14 +20,7 @@ def generate_image():
         stop=None,
         temperature=0.5,
     )
-
-    
     try:
         image_url = completions.choices[0].url
         st.image(image_url, width=300)
         st.markdown("[Download image]({})".format(image_url))
-    except KeyError:
-        st.error("Error occured, please check your prompt or the model you've selected")
-
-if st.button("Generate Image"):
-    generate_image()

@@ -7,7 +7,9 @@ st.title("Image Generator using OpenAI")
 api_key = st.text_input("Enter your OpenAI API key:")
 openai.api_key = api_key
 
-model_id = "image-alpha-003"
+models = openai.Model.list()
+print(models)
+
 
 def generate_image():
     prompt = st.text_input("Enter a prompt for the image:")

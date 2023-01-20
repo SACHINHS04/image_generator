@@ -15,7 +15,7 @@ if st.button("Generate"):
             prompt=prompt,
             api_key=api_key
         )
-        image_url = response['data']['url']
+        image_url = response[0]['url']
         st.image(image_url)
         file_name = prompt.replace(" ", "_") + ".jpg"
         urllib.request.urlretrieve(image_url, file_name)

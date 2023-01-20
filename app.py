@@ -8,6 +8,11 @@ api_key = st.text_input("Enter your OpenAI API key:")
 openai.api_key = api_key
 
 
+
+model_id = "image-alpha-003"
+
+
+
 with st.spinner("Waiting for the image to generate..."):
     completions = openai.Completion.create(
         engine=model_id,
@@ -17,9 +22,9 @@ with st.spinner("Waiting for the image to generate..."):
         stop=None,
         temperature=0.5,
     )
-
-model_id = "image-alpha-003"
-
+    
+    
+    
 def generate_image():
     prompt = st.text_input("Enter a prompt for the image:")
 

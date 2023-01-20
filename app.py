@@ -23,4 +23,9 @@ def generate_image():
     try:
         image_url = completions.choices[0].url
         st.image(image_url, width=300)
-        st.markdown("[Download image]({})".format(image_url)))
+        try:
+            st.markdown("[Download image]({})".format(image_url))
+        except Exception as e:
+            st.error("Error occured, please check the image url or internet connection")
+    except KeyError:
+        st.error("Error occured, please check your")

@@ -17,11 +17,11 @@ if st.button("Generate"):
         )
         image_url = response['data'][0]['url']
         st.image(image_url)
-        if st.button("Download"):
-            file_name = st.text_input("Enter the name of the file", value=prompt.replace(" ", "_") + ".jpg")
-            file_path = st.filesavebox("Select the location to save the file",default=file_name)
-        if file_path:
-            urllib.request.urlretrieve(image_url, file_path)
-            st.success("Image saved as {}".format(file_path))
+#         if st.button("Download"):
+#             file_name = st.text_input("Enter the name of the file", value=prompt.replace(" ", "_") + ".jpg")
+#             file_path = st.filesavebox("Select the location to save the file",default=file_name)
+#         if file_path:
+#             urllib.request.urlretrieve(image_url, file_path)
+#             st.success("Image saved as {}".format(file_path))
 
 
